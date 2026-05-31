@@ -116,13 +116,12 @@ function ProfilePhoto() {
       <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-[3px] border-teal-400/70 shadow-[0_0_32px_rgba(16,185,129,0.12)] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 mx-auto transition-transform duration-500 group-hover:scale-105">
         <div className="profile-ring opacity-80 animate-spin-slow" />
         <img
-          src="/images/image.png"
+          src={`${import.meta.env.BASE_URL}images/image.png`}
           alt="Oussama NABBAR"
           className="w-full h-full object-cover relative z-10"
           onError={(e) => {
-            // fallback to bundled placeholder if actual photo is missing
             e.currentTarget.onerror = null;
-            e.currentTarget.src = '/images/profile-placeholder.svg';
+            e.currentTarget.src = `${import.meta.env.BASE_URL}images/profile-placeholder.svg`;
           }}
         />
       </div>
@@ -240,7 +239,7 @@ export default function Hero() {
             <span className="relative z-10">View Projects</span>
           </motion.button>
           <motion.a
-            href="/cv.pdf"
+            href={`${import.meta.env.BASE_URL}cv.pdf`}
             download
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
