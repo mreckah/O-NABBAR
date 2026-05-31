@@ -120,7 +120,9 @@ function ProfilePhoto() {
           alt="Oussama NABBAR"
           className="w-full h-full object-cover relative z-10"
           onError={(e) => {
-            e.currentTarget.style.display = "none";
+            // fallback to bundled placeholder if actual photo is missing
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = '/images/profile-placeholder.svg';
           }}
         />
       </div>
