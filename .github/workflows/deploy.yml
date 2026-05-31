@@ -29,4 +29,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # If GITHUB_TOKEN lacks permission, create a Personal Access Token (repo scope)
+          # and save it as the `GH_PAGES_PAT` secret in your repository settings.
+          # The action will prefer `personal_token` when provided.
+          personal_token: ${{ secrets.GH_PAGES_PAT }}
           publish_dir: ./dist
